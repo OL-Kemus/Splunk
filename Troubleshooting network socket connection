@@ -25,3 +25,5 @@ Splunk troubleshooting network issues ---> https://splunk.atlassian.net/wiki/spa
 tcpdum command to see tcp traffic ---> https://www.techtarget.com/searchnetworking/tutorial/How-to-capture-and-analyze-traffic-with-tcpdump
 
 Resource ---> https://community.splunk.com/t5/Installation/TCPDUMP-Command/m-p/454771
+
+https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821731864059/network+connection+tools
