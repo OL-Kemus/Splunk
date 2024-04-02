@@ -14,7 +14,7 @@ ss (socket statistics)
 
 Useful links:
 
-SYN queue explained ---> https://www.alibabacloud.com/blog/tcp-syn-queue-and-accept-queue-overflow-explained_599203
+SYN queue explained (A SYN queue : used for storing connection requests (one connection request per SYN packet))---> https://www.alibabacloud.com/blog/tcp-syn-queue-and-accept-queue-overflow-explained_599203
 
 The 'ss' command explained ---> https://www.networkworld.com/article/971764/using-the-ss-command-on-linux-to-view-details-on-sockets.html
 
