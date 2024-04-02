@@ -1,0 +1,23 @@
+The use of the 'ss' command (socket statistics) is useful in cases where the connections are overflowing the allow metric:
+
+ss (socket statistics)
+
+-a = all
+-l = listening
+-p = process
+-s = summary
+-4 = ipv4
+-t = tcp
+-u = udp
+-n = resolve names
+-r = resolve names
+
+Useful links:
+
+SYN queue explained ---> https://www.alibabacloud.com/blog/tcp-syn-queue-and-accept-queue-overflow-explained_599203
+
+The 'ss' command explained ---> https://www.networkworld.com/article/971764/using-the-ss-command-on-linux-to-view-details-on-sockets.html
+
+The 'nstat' command explained (SNMT - Simple Network Management Protocol)---> https://www.redhat.com/sysadmin/nstat-command-linux
+
+Splunk troubleshooting network issues ---> https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821731863778/accept+queue+overflow
