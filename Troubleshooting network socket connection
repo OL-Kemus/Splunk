@@ -21,3 +21,7 @@ The 'ss' command explained ---> https://www.networkworld.com/article/971764/usin
 The 'nstat' command explained (SNMT - Simple Network Management Protocol)---> https://www.redhat.com/sysadmin/nstat-command-linux
 
 Splunk troubleshooting network issues ---> https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821731863778/accept+queue+overflow
+
+tcpdum command to see tcp traffic ---> https://www.techtarget.com/searchnetworking/tutorial/How-to-capture-and-analyze-traffic-with-tcpdump
+
+Resource ---> https://community.splunk.com/t5/Installation/TCPDUMP-Command/m-p/454771
