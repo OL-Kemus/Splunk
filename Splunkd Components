@@ -1,0 +1,7 @@
+DEBUG channel explanation ---------------> https://splunk.atlassian.net/wiki/spaces/PROD/pages/313727993236/Enterprise+DEBUG+Channels
+
+Splunkd Components explanation ----------> https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821550269640/splunkd.log+-+components
+
+Splunkd Events Components examples ------> https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821559884267/splunkd.log+-+events
+
+Splunkd messages Log Level examples -----> https://splunk.atlassian.net/wiki/spaces/~phadnett/pages/821673643321/splunkd.log+-+messages
