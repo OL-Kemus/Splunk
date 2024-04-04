@@ -1,0 +1,30 @@
+Troubleshooting Duplicate Events: https://splunk.atlassian.net/wiki/spaces/SUP/pages/2979040606/File+Monitoring+Tailing+Processor
+
+EOF Sniffer
+
+Purpose
+
+EOF Sniffer helps identify cases where log files that splunk is monitoring change out from under Splunk.  Typically these are cases where Splunk will say that the seek crc has changed and the content does not match. 
+
+This script helps determine whether the problem is outside Splunk in the file behavior, or inside Splunk.
+
+This script records, typically once a second, a file's size, modtime, crc-related text, crc values and time-of-check.
+
+(Typically this is relevant in cases where the program creating the file is doing stupid things with the file, or if the network file system sucks and the file is not coherent. 
+
+This script is useful because it is incredibly simple, and it can show the behavior is occurring independently of Splunk.)
+
+Usage
+
+1 - Modify the script to set the list of filenames as documented in the first few lines.
+
+2 - Typically you will want Splunk running with file input debug turned on at the same time
+
+3 - Run the script with python EOF_sniffer.py output_filename.txt 
+
+4 - When you know the problem has occurred, exit the script (example, ctrl-c) and send in the data.
+
+Get the script in the following link: https://splunk.atlassian.net/wiki/pages/viewpageattachments.action?pageId=3003680144&preview=%2F3003680144%2F3003680152%2FEOF_sniffer.py
+
+Once gotten, continue with the following link where the script details are explained: https://splunk.atlassian.net/wiki/spaces/SUP/pages/3003680280/EOF+sniffer.py+details
+
