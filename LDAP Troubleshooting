@@ -1,0 +1,7 @@
+LDAP Set up ---> https://splunk.enterprise.slack.com/files/U032LQAG44A/F06S77H2SJH/ldap_guide.pdf
+
+LDAP Troubleshooting ---> https://splunk.atlassian.net/wiki/spaces/SUP/pages/2973341229/Authentication+WIP
+
+ldapsearch command example ---> ldapsearch -h <ip_address> -x -p <port_number> -D "<bindDN>" -b "<userBaseDN>" (the group container name) -W
+
+It will ask for the LDAP password of the remote admin user
