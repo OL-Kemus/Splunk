@@ -5,3 +5,11 @@ LDAP Troubleshooting ---> https://splunk.atlassian.net/wiki/spaces/SUP/pages/297
 ldapsearch command example ---> ldapsearch -h <ip_address> -x -p <port_number> -D "<bindDN>" -b "<userBaseDN>" (the group container name) -W
 
 It will ask for the LDAP password of the remote admin user
+
+In the command prompt run this:
+
+To get the Bind DN ---> dsquery user -name <admin_username> 
+
+To get the User base DN ---> dsquery user -name <any_username_in_users>
+
+To get the group base DN ----> dsquery group -name <group_name>
