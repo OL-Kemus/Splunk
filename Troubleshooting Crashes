@@ -1,0 +1,45 @@
+Core dumps are produced when system crashes and are useful since they diagnose the reason behind the crash.
+
+There are several reasons why these are not enabled by default, depending on the distribution and OS:
+
+1 - The /var/lib/systemd/coredump/ will not contain any core files unless you have installed systemd-coredump and then re run the program that crashes.
+
+2 - The core dump is written in the current directory of the process at the time of the crash.
+
+3 - Check the output of ulimit -c, if that's 0 then no core file will be written. Run ulimit -c unlimited to enable core dumps; this is a per-process setting which is inherited by processes started by that process.
+
+If a core dump should have been generated but you don't know where, then you could start the process again (if it will without crashing immediately), then check its working directory by doing ls -l /proc/$pid/cwd where $pid is the process ID of the process. 
+That link will point to the current working directory of that process. Chances are the core dump will be there. Otherwise you need to run find on the entire system...
+
+/proc/sys/kernel/core_pattern is used to specify a core dumpfile pattern name. If the first character of the pattern is a '|', the kernel will treat the rest of the pattern as a command to run. 
+The core dump will be written to the standard input of that program instead of to a file.
+
+With the launch of systemd, there's another scenario as well. By default systemd will store core dumps in its journal, being accessible with the systemd-coredumpctl command. Defined in the core_pattern-file:
+
+$ cat /proc/sys/kernel/core_pattern 
+|/usr/lib/systemd/systemd-coredump %p %u %g %s %t %e
+Easiest way to check for stored core dumps is via coredumpctl list (older core dumps may have been removed automatically). This behaviour can be disabled with a simple "hack":
+
+$ ln -s /dev/null /etc/sysctl.d/50-coredump.conf
+$ sysctl -w kernel.core_pattern=core      # or just reboot
+As always, the size of core dumps has to be equal or higher than the size of the core that is being dumped, as done by for example ulimit -c unlimited.
+
+https://www.baeldung.com/linux/core-dumps-path-set
+
+https://learn.microsoft.com/en-us/troubleshoot/windows-client/performance/generate-a-kernel-or-complete-crash-dump
+
+Also, we can run:
+
+$coredumpctl gdb PID HERE
+
+To see the crash process information
+
+Also, if the file ends in lz4 is because it is compressed. Install the lz4 package.
+
+https://snapcraft.io/lz4
+
+Uncompress lz4 file by lz4 command, then you can debug by gdb crashed_C_executable_file uncompressed_coredump_file
+
+https://splunk.atlassian.net/wiki/spaces/SUP/pages/3020404548/Crash+Analysis
+
+https://stackoverflow.com/questions/31795901/gdb-and-trouble-with-core-dumps
