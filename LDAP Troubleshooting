@@ -12,4 +12,4 @@ To get the Bind DN ---> dsquery user -name <admin_username>
 
 To get the User base DN ---> dsquery user -name <any_username_in_users>
 
-To get the group base DN ----> dsquery group -name <group_name>
+To get the group base DN ----> dsquery group -name <group_name> 
