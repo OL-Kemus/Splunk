@@ -11,18 +11,18 @@ category.databasePartitionPolicy= DEBUG
 category.HotDBManager= DEBUG
 category.BucketMover= DEBUG
 
-Command to recover data is fsck -------- > https://docs.splunk.com/Documentation/Splunk/9.2.1/Troubleshooting/CommandlinetoolsforusewithSupport#fsck
+The command to recover data is fsck -------- > https://docs.splunk.com/Documentation/Splunk/9.2.1/Troubleshooting/CommandlinetoolsforusewithSupport#fsck
 
 Example of the fsck command ------------ > https://community.splunk.com/t5/Splunk-Search/splunk-command-to-repair-buckets/m-p/372180
 
 Note, you may directly run this fsck repair command. The fsck utility will always check the data first, if no corruption, no repairing will be performed.
 
-If corruption is detected by the fsck utility, you may run 'rebuild' command to repair it instead of using the 'fsck' command, e.g.,:
+If corruption is detected by the fsck utility, you may run the 'rebuild' command to repair it instead of using the 'fsck' command, e.g.,:
 
 ./splunk stop
 ./splunk rebuild /path/to/your/db
 
- However, Splunk built-in "rebuild" command is for single bucket. So, you may create script to run multiple buckets rebuild. Be careful of running multiple rebuild because it will require CPU, memory and DISK IO.
+ However, Splunk's built-in "rebuild" command is for a single bucket. So, you may create a script to run multiple buckets rebuild. Be careful of running multiple rebuilds because it will require CPU, memory, and DISK IO.
 
-https://docs.splunk.com/Documentation/Splunk/9.2.2/Indexer/Restorearchiveddata
+https://docs.splunk.com/Documentation/Splunk/9.2.2/Indexer/Restorearchiveddata 
 
