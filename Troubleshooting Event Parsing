@@ -1,0 +1,34 @@
+Splunk Indexing Processor order: parsing -> aggregation -> typing
+
+Parsing-------> Events are broken into pieces
+Aggregation --> The timestamp is extracted and the event is merged (as a consequence of no timezone is defined, the instance TZ will be used)
+Typing -------> The SEDCMD, regex, and transforms are applied
+
+Note: Indexers won't re-parse events that were already parsed by a previous instance.
+
+Where should I put the props.conf?
+
+Identifying where the props should be deployed depends on the type of instances involved. By default, you want the index time parsing props.conf rules on the indexers or heavy forwarders. 
+
+Note: A good practice is to use the same rule everywhere.
+
+1 - If you have multiple UF sending data to Indexers, set props.conf in the indexer.
+2 - If you have an HF sending data to the Indexer, set props.conf in the HF.
+3 - If you have an SH acting as an HF that's sending data to the Indexer, set props.conf in the SH/HF.
+
+However, there is one exception rule with the INDEXED_EXTRACTIONS setting. This is used to parse structured data like JSON / CSV files and have the fields saved as metadata. (instead of doing search time parsing)
+
+Note: The sourcetype using the indexed extraction feature will be parsed on the instance monitoring the logs file (the forwarder).
+
+Importance about INDEXED_EXTRACTIONS
+
+1 - You need to put those props.conf on the forwarders too.
+2 - The indexer will not re-parse the data if you set up the INDEXED_EXTRACTIONS on it
+3 - You cannot use this feature for any other type of input:  HTTP event collector, TCP/UDP, modular inputs, scripts, s3, etc ...
+4 - This also applies to the dependent settings like  PREAMBLE_REGEX, TIMESTAMP_FIELDS, etc ...
+
+Consider setting these to DEBUG in log-local.cfg:
+
+AggregatorMiningProcessor
+DateParserVerbose
+LineBreakingProcessor
